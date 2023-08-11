@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.no_default_selectbox import selectbox
 import pandas as pd
 import numpy as np
 
@@ -16,7 +17,7 @@ def load_data():
 
 # Create pull down menu from df index
 df_vectors = load_data()
-query = st.selectbox("Term", sorted(df_vectors.index.tolist()), index=0)
+query = selectbox("Term", sorted(df_vectors.index.tolist()), index=0)
 
 if query:
     st.write(f"Previewing the top {LENGTH} most similar terms to '{query}'. Click button to download full list")
